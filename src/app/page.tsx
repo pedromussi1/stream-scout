@@ -107,9 +107,18 @@ export default function Home() {
       <main className="flex-1 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-3">
-            Stream<span className="text-accent">Scout</span>
-          </h1>
+          <button
+            onClick={() => {
+              setQuery("");
+              setActiveServiceId(null);
+              setSelectedMovieId(null);
+            }}
+            className="inline-block cursor-pointer"
+          >
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-3 hover:opacity-80 transition-opacity">
+              Stream<span className="text-accent">Scout</span>
+            </h1>
+          </button>
           <p className="text-muted text-lg">Find where to watch any movie</p>
         </div>
 
