@@ -55,7 +55,7 @@ export function MovieGrid({
       {movies.map((movie, i) => (
         <div
           key={movie.id}
-          className="animate-stagger-in"
+          className="animate-stagger-in h-full"
           style={{ animationDelay: `${Math.min(i * 50, 500)}ms` }}
         >
           <MovieCard

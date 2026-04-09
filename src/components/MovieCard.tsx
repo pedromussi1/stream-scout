@@ -20,7 +20,7 @@ export function MovieCard({ movie, isSelected, onSelect }: MovieCardProps) {
   return (
     <button
       onClick={() => onSelect(movie.id)}
-      className={`group text-left rounded-xl overflow-hidden bg-card border transition-all duration-200 hover:scale-[1.02] hover:border-accent/50 ${
+      className={`group text-left rounded-xl overflow-hidden bg-card border transition-all duration-200 hover:scale-[1.02] hover:border-accent/50 w-full h-full flex flex-col ${
         isSelected ? "border-accent ring-1 ring-accent" : "border-border"
       }`}
     >
@@ -41,7 +41,7 @@ export function MovieCard({ movie, isSelected, onSelect }: MovieCardProps) {
           </div>
         )}
       </div>
-      <div className="p-3">
+      <div className="p-3 flex-1">
         <h3 className="font-medium text-sm text-foreground truncate group-hover:text-accent transition-colors">
           {movie.title}
         </h3>
