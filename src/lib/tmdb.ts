@@ -29,3 +29,17 @@ export async function getWatchProviders(id: number) {
   if (!res.ok) throw new Error(`TMDB providers fetch failed: ${res.status}`);
   return res.json();
 }
+
+export async function getTrendingMovies() {
+  const url = `${TMDB_BASE}/trending/movie/week?language=en-US`;
+  const res = await fetch(url, { headers: headers() });
+  if (!res.ok) throw new Error(`TMDB trending failed: ${res.status}`);
+  return res.json();
+}
+
+export async function discoverByProvider(providerId: number, page = 1) {
+  const url = `${TMDB_BASE}/discover/movie?with_watch_providers=${providerId}&watch_region=US&sort_by=popularity.desc&page=${page}&language=en-US`;
+  const res = await fetch(url, { headers: headers() });
+  if (!res.ok) throw new Error(`TMDB discover failed: ${res.status}`);
+  return res.json();
+}

@@ -11,3 +11,8 @@ export function posterUrl(path: string | null): string | null {
 export function providerLogoUrl(path: string): string {
   return `${TMDB_IMAGE_BASE}/${PROVIDER_LOGO_SIZE}${path}`;
 }
+
+export function backdropUrl(path: string | null): string | null {
+  if (!path) return null;
+  return `${TMDB_IMAGE_BASE}/${BACKDROP_SIZE}${path}`;
+}

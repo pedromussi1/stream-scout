@@ -52,13 +52,18 @@ export function MovieGrid({
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-      {movies.map((movie) => (
-        <MovieCard
+      {movies.map((movie, i) => (
+        <div
           key={movie.id}
-          movie={movie}
-          isSelected={selectedId === movie.id}
-          onSelect={onSelect}
-        />
+          className="animate-stagger-in"
+          style={{ animationDelay: `${Math.min(i * 50, 500)}ms` }}
+        >
+          <MovieCard
+            movie={movie}
+            isSelected={selectedId === movie.id}
+            onSelect={onSelect}
+          />
+        </div>
       ))}
     </div>
   );

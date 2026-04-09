@@ -48,5 +48,5 @@ export function useMovieSearch() {
     return () => controller.abort();
   }, [debouncedQuery]);
 
-  return { query, setQuery, results, isLoading, error, hasSearched };
+  return { query, setQuery, results, isLoading, error, hasSearched, debouncedQuery };
 }

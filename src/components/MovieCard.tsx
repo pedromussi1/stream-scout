@@ -3,6 +3,7 @@
 import Image from "next/image";
 import type { Movie } from "@/types/tmdb";
 import { TMDB_IMAGE_BASE, POSTER_SIZE } from "@/lib/constants";
+import { genreNames } from "@/lib/genres";
 
 interface MovieCardProps {
   movie: Movie;
@@ -14,6 +15,7 @@ export function MovieCard({ movie, isSelected, onSelect }: MovieCardProps) {
   const year = movie.release_date?.split("-")[0] || "N/A";
   const rating = movie.vote_average?.toFixed(1);
   const hasPoster = !!movie.poster_path;
+  const genres = genreNames(movie.genre_ids);
 
   return (
     <button
@@ -52,6 +54,18 @@ export function MovieCard({ movie, isSelected, onSelect }: MovieCardProps) {
             </>
           )}
         </div>
+        {genres.length > 0 && (
+          <div className="flex gap-1 mt-1.5 flex-wrap">
+            {genres.map((g) => (
+              <span
+                key={g}
+                className="text-[10px] px-1.5 py-0.5 rounded-full bg-card-hover text-muted border border-border"
+              >
+                {g}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </button>
   );
